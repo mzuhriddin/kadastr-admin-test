@@ -30,7 +30,28 @@
 <script>
 export default {
   name: "Chat",
-  props: ["name", "phone", "time", "answered", "content"]
+  props: {
+    answered: {
+      type: String,
+      default: null
+    },
+    name: {
+      type: String,
+      default: null
+    },
+    phone: {
+      type: String,
+      default: null
+    },
+    time: {
+      type: String,
+      default: null
+    },
+    content: {
+      type: String,
+      default: null
+    }
+  }
 }
 </script>
 

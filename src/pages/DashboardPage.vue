@@ -1,103 +1,107 @@
 <template>
-  <div class="dashboard">
-    <div>
-      <div class="flex">
-        <q-card class="small-card">
-          <q-card-section>
-            <span>Bugun</span>
-            <span>67%</span>
-          </q-card-section>
-          <q-card-section>
-            <span>Kelib tushgan murojaatlar soni</span>
-            <span>150</span>
-          </q-card-section>
-          <q-separator color="grey" inset/>
-          <q-card-section>
-            <span>Javob berilganlar soni</span>
-            <span>100</span>
-          </q-card-section>
-          <q-separator color="grey" inset/>
-        </q-card>
-        <q-card class="small-card">
-          <q-card-section>
-            <span>Joriy oy</span>
-            <span>83%</span>
-          </q-card-section>
-          <q-card-section>
-            <span>Kelib tushgan murojaatlar soni</span>
-            <span>4337</span>
-          </q-card-section>
-          <q-separator color="grey" inset/>
-          <q-card-section>
-            <span>Javob berilganlar soni</span>
-            <span>4023</span>
-          </q-card-section>
-          <q-separator color="grey" inset/>
-        </q-card>
-      </div>
-      <div>
-        <q-card class="medium-card flex">
-          <q-card-section>
-            <span>Oy bo'yicha statistika</span>
-            <span>Fevral 2022</span>
-            <span>
+  <q-page class="dashboard q-col-gutter-lg items-start justify-center" padding>
+    <div class="row">
+      <div class="col-xl-8 col-md-7">
+        <div class="column">
+          <div class="row justify-between">
+            <q-card class="col-6">
+              <q-card-section class="row">
+                <span class="col-9">Bugun</span>
+                <span class="col-3">67%</span>
+              </q-card-section>
+              <q-card-section class="row">
+                <span class="col-9">Kelib tushgan murojaatlar soni</span>
+                <span class="col-3">150</span>
+              </q-card-section>
+              <q-separator color="grey" inset/>
+              <q-card-section class="row">
+                <span class="col-9">Javob berilganlar soni</span>
+                <span class="col-3">100</span>
+              </q-card-section>
+              <q-separator color="grey" inset/>
+            </q-card>
+            <q-card class="col-6">
+              <q-card-section class="row">
+                <span class="col-9">Joriy oy</span>
+                <span class="col-3">83%</span>
+              </q-card-section>
+              <q-card-section class="row">
+                <span class="col-9">Kelib tushgan murojaatlar soni</span>
+                <span class="col-3">4337</span>
+              </q-card-section>
+              <q-separator color="grey" inset/>
+              <q-card-section class="row">
+                <span class="col-9">Javob berilganlar soni</span>
+                <span class="col-3">4023</span>
+              </q-card-section>
+              <q-separator color="grey" inset/>
+            </q-card>
+          </div>
+          <div>
+            <q-card class="medium-card flex">
+              <q-card-section>
+                <span>Oy bo'yicha statistika</span>
+                <span>Fevral 2022</span>
+                <span>
               <q-icon>
                 <img src="../assets/date_range.svg" alt=""/>
               </q-icon>
             </span>
-          </q-card-section>
-          <q-card-section>
-            <img src="../assets/chart-1.png" alt="" width="855" height="234">
-          </q-card-section>
+              </q-card-section>
+              <q-card-section>
+                <img src="../assets/chart-1.png" alt="">
+              </q-card-section>
 
-        </q-card>
-        <q-card class="medium-card flex">
-          <q-card-section>
-            <span>Yil bo'yicha statistika</span>
-            <span>2022</span>
-            <span>
+            </q-card>
+            <q-card class="medium-card flex">
+              <q-card-section>
+                <span>Yil bo'yicha statistika</span>
+                <span>2022</span>
+                <span>
               <q-icon>
                 <img src="../assets/date_range.svg" alt=""/>
               </q-icon>
             </span>
-          </q-card-section>
+              </q-card-section>
+              <q-card-section>
+                <img src="../assets/chart-2.png" alt="">
+              </q-card-section>
+            </q-card>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-4 col-md-5">
+        <q-card class="big-card">
           <q-card-section>
-            <img src="../assets/chart-2.png" alt="" width="861" height="231">
+            <span>Kun kesimida</span>
+            <span>Fevral<br>2022</span>
+          </q-card-section>
+          <q-separator color="grey" inset/>
+          <q-card-section>
+            <q-list>
+              <q-scroll-area style="height: 720px">
+                <q-item v-for="appeal in appeals" class="flex-column">
+                  <q-item-section>
+                    <span>{{ appeal.date }}</span>
+                    <span>{{ appeal.answeredAppeals / appeal.totalAppeals * 100 }}%</span>
+                  </q-item-section>
+                  <q-item-section>
+                    <span>Kelib tushgan murojaatlar soni</span>
+                    <span>{{ appeal.totalAppeals }}</span>
+                  </q-item-section>
+                  <q-item-section>
+                    <span>Javob berilganlar soni</span>
+                    <span>{{ appeal.answeredAppeals }}</span>
+                  </q-item-section>
+                  <q-separator color="grey" inset/>
+                </q-item>
+              </q-scroll-area>
+            </q-list>
           </q-card-section>
         </q-card>
       </div>
     </div>
-    <div>
-      <q-card class="big-card">
-        <q-card-section>
-          <span>Kun kesimida</span>
-          <span>Fevral<br>2022</span>
-        </q-card-section>
-        <q-separator color="grey" inset/>
-        <q-card-section>
-          <q-list>
-            <q-scroll-area style="height: 720px">
-              <q-item v-for="appeal in appeals" class="flex-column">
-                <q-item-section>
-                  <span>{{ appeal.date }}</span>
-                  <span>{{ appeal.answeredAppeals / appeal.totalAppeals * 100 }}%</span>
-                </q-item-section>
-                <q-item-section>
-                  <span>Kelib tushgan murojaatlar soni</span>
-                  <span>{{ appeal.totalAppeals }}</span>
-                </q-item-section>
-                <q-item-section>
-                  <span>Javob berilganlar soni</span>
-                  <span>{{ appeal.answeredAppeals }}</span>
-                </q-item-section>
-                <q-separator color="grey" inset/>
-              </q-item>
-            </q-scroll-area>
-          </q-list>
-        </q-card-section>
-      </q-card>
-    </div>
-  </div>
+  </q-page>
 </template>
 
 <script>
@@ -255,28 +259,6 @@ export default defineComponent({
 </script>
 
 <style lang="sass" scoped>
-.dashboard
-  display: flex
-  justify-content: center
-
-.small-card
-  width: 439px
-  height: 213px
-  margin-top: 60px
-  margin-left: 52px
-
-.medium-card
-  width: 930px
-  height: 302px
-  margin-left: 52px
-  margin-top: 35px
-
-.big-card
-  width: 455px
-  height: 886px
-  margin-top: 60px
-  margin-left: 42px
-
 .flex-column
   display: flex
   flex-direction: column
