@@ -28,70 +28,69 @@
           <span>Operator</span>
         </q-item>
         <q-scroll-area style="height: 750px">
-          <template v-for="appeal in appeals">
-            <q-item
-              clickable
-              class="row justify-around"
-              @click="showChat(appeal)"
-            >
-              <div>
-                <div class="row">
-                  <span class="q-mr-md">F.I.Sh:</span>
-                  <span>{{ appeal.name }}</span>
-                </div>
-                <div class="row">
-                  <span class="q-mr-md">Tel:</span>
-                  <span>{{ appeal.phone }}</span>
-                </div>
-                <div class="row">
-                  <span class="q-mr-md">Yaratildi:</span>
-                  <span>{{ appeal.created }}</span>
-                </div>
+          <q-item
+            v-for="appeal in appeals"
+            clickable
+            class="row justify-around"
+            @click="showChat(appeal)"
+          >
+            <div>
+              <div class="row">
+                <span class="q-mr-md">F.I.Sh:</span>
+                <span>{{ appeal.name }}</span>
               </div>
-              <div>
-                <div class="row">
-                  <span class="q-mr-md">Holati:</span>
-                  <span>{{ appeal.status }}</span>
-                </div>
-                <div class="row">
-                  <span class="q-mr-md">Vaqti:</span>
-                  <span>{{ appeal.time }}</span>
-                </div>
-                <div class="row">
-                  <span class="q-mr-md">Mazmun:</span>
-                  <span>{{ appeal.content }}</span>
-                </div>
+              <div class="row">
+                <span class="q-mr-md">Tel:</span>
+                <span>{{ appeal.phone }}</span>
               </div>
-              <div>
-                <div class="row">
-                  <span class="q-mr-md">Qabul qilindi:</span>
-                  <span>{{ appeal.accepted }}</span>
-                </div>
-                <div class="row">
-                  <span class="q-mr-md">Javob berildi:</span>
-                  <span>{{ appeal.answered }}</span>
-                </div>
-                <div class="row">
-                  <span class="q-mr-md">Vaqtlar farqi:</span>
-                  <span>{{ appeal.time_range }}</span>
-                </div>
+              <div class="row">
+                <span class="q-mr-md">Yaratildi:</span>
+                <span>{{ appeal.created }}</span>
               </div>
-              <div>
-                <div class="row">
-                  <span class="q-mr-md">F.I.Sh:</span>
-                  <span>{{ appeal.operator }}</span>
-                </div>
-                <div class="row">
-                  <span class="q-mr-md">Tel:</span>
-                  <span>{{ appeal.operator_phone }}</span>
-                </div>
-                <div class="row">
-                  <span class="q-mr-md">Holati:</span>
-                  <span>{{ appeal.operator_status }}</span>
-                </div>
+            </div>
+            <div>
+              <div class="row">
+                <span class="q-mr-md">Holati:</span>
+                <span>{{ appeal.status }}</span>
               </div>
-            </q-item>
-          </template>
+              <div class="row">
+                <span class="q-mr-md">Vaqti:</span>
+                <span>{{ appeal.time }}</span>
+              </div>
+              <div class="row">
+                <span class="q-mr-md">Mazmun:</span>
+                <span>{{ appeal.content }}</span>
+              </div>
+            </div>
+            <div>
+              <div class="row">
+                <span class="q-mr-md">Qabul qilindi:</span>
+                <span>{{ appeal.accepted }}</span>
+              </div>
+              <div class="row">
+                <span class="q-mr-md">Javob berildi:</span>
+                <span>{{ appeal.answered }}</span>
+              </div>
+              <div class="row">
+                <span class="q-mr-md">Vaqtlar farqi:</span>
+                <span>{{ appeal.time_range }}</span>
+              </div>
+            </div>
+            <div>
+              <div class="row">
+                <span class="q-mr-md">F.I.Sh:</span>
+                <span>{{ appeal.operator }}</span>
+              </div>
+              <div class="row">
+                <span class="q-mr-md">Tel:</span>
+                <span>{{ appeal.operator_phone }}</span>
+              </div>
+              <div class="row">
+                <span class="q-mr-md">Holati:</span>
+                <span>{{ appeal.operator_status }}</span>
+              </div>
+            </div>
+          </q-item>
         </q-scroll-area>
       </q-list>
     </q-card>
@@ -114,6 +113,7 @@ export default {
   components: {Chat},
   data() {
     return {
+      show: false,
       name: "",
       phone: "",
       time: "",
@@ -126,7 +126,7 @@ export default {
           created: "11.02.2022",
           status: "Qabul qilinmadi",
           time: "11:00 11.02.2022",
-          content: "lorem ipsum dolor sit amet",
+          content: ["lorem ipsum dolor sit amet"],
           accepted: "11:00 11.02.2022",
           answered: "12:00 11.02.2022",
           time_range: "01:00:00",
@@ -139,7 +139,7 @@ export default {
           created: "11.02.2022",
           status: "Qabul qilinmadi",
           time: "11:00 11.02.2022",
-          content: "lorem ipsum dolor sit amet",
+          content: ["lorem ipsum dolor sit amet"],
           accepted: "11:00 11.02.2022",
           answered: "12:00 11.02.2022",
           time_range: "01:00:00",
@@ -252,26 +252,28 @@ export default {
           operator_status: "Faol",
         }
 
-      ],
-      show: false
+      ]
+
     }
   },
   methods: {
     showChat(appeal) {
-      if (this.show === false) {
-        this.show = true
-        this.name = appeal.name
-        this.phone = appeal.phone
-        this.time = appeal.time
-        this.answered = appeal.answered
-        this.content = appeal.content
-      } else {
+      if (this.show) {
         this.show = false
         this.name = ""
         this.phone = ""
         this.time = ""
         this.answered = ""
         this.content = ""
+      } else{
+        this.show = true
+        console.log(appeal)
+        this.name = appeal.name
+        this.phone = appeal.phone
+        this.time = appeal.time
+        this.answered = appeal.answered
+        this.content = appeal.content
+        console.log("and")
       }
     }
   }

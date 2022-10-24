@@ -16,6 +16,7 @@
         <q-chat-message
           :name="time"
           :text="content"
+
         />
         <q-chat-message
           :name="answered"
@@ -33,23 +34,23 @@ export default {
   props: {
     answered: {
       type: String,
-      default: null
+      default: ""
     },
     name: {
       type: String,
-      default: null
+      default: ""
     },
     phone: {
       type: String,
-      default: null
+      default: ""
     },
     time: {
       type: String,
-      default: null
+      default: ""
     },
     content: {
-      type: String,
-      default: null
+      type: Array,
+      default: ""
     }
   }
 }

@@ -1,59 +1,62 @@
 <template>
-  <q-page class="dashboard q-col-gutter-lg items-start justify-center" padding>
-    <div class="row">
-      <div class="col-xl-8 col-md-7">
-        <div class="column">
+  <q-page class="dashboard q-col-gutter-lg items-start justify-center q-pa-xl">
+    <div class="row justify-center">
+      <div class="col-xl-8 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div>
           <div class="row justify-between">
-            <q-card class="col-6">
-              <q-card-section class="row">
-                <span class="col-9">Bugun</span>
-                <span class="col-3">67%</span>
-              </q-card-section>
-              <q-card-section class="row">
-                <span class="col-9">Kelib tushgan murojaatlar soni</span>
-                <span class="col-3">150</span>
-              </q-card-section>
-              <q-separator color="grey" inset/>
-              <q-card-section class="row">
-                <span class="col-9">Javob berilganlar soni</span>
-                <span class="col-3">100</span>
-              </q-card-section>
-              <q-separator color="grey" inset/>
-            </q-card>
-            <q-card class="col-6">
-              <q-card-section class="row">
-                <span class="col-9">Joriy oy</span>
-                <span class="col-3">83%</span>
-              </q-card-section>
-              <q-card-section class="row">
-                <span class="col-9">Kelib tushgan murojaatlar soni</span>
-                <span class="col-3">4337</span>
-              </q-card-section>
-              <q-separator color="grey" inset/>
-              <q-card-section class="row">
-                <span class="col-9">Javob berilganlar soni</span>
-                <span class="col-3">4023</span>
-              </q-card-section>
-              <q-separator color="grey" inset/>
-            </q-card>
+            <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12">
+              <q-card class="q-ma-lg q-pr-lg q-pb-lg">
+                <q-card-section class="row" style="padding: 0;">
+                  <span class="col-10 fs-28 q-pa-lg bg-grey text-weight-bold">Bugun</span>
+                  <span class="col-2 fs-28 q-pt-lg q-pl-md text-weight-bold" style="color: orange">67%</span>
+                </q-card-section>
+                <q-card-section class="row q-pl-lg" style="padding: 0;">
+                  <span class="col-10 fs-18 q-pa-lg">Kelib tushgan murojaatlar soni</span>
+                  <span class="col-2 fs-24 q-pa-lg text-weight-bold">150</span>
+                </q-card-section>
+                <q-separator color="grey" class="q-ml-lg" inset/>
+                <q-card-section class="row q-pl-lg" style="padding: 0;">
+                  <span class="col-10 fs-18 q-pa-lg">Javob berilganlar soni</span>
+                  <span class="col-2 fs-18 q-pa-lg">100</span>
+                </q-card-section>
+                <q-separator color="grey" class="q-ml-lg" inset/>
+              </q-card>
+            </div>
+            <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12">
+              <q-card class="q-ma-lg q-pr-lg q-pb-lg">
+                <q-card-section class="row" style="padding: 0;">
+                  <span class="col-10 fs-28 q-pa-lg bg-grey text-weight-bold">Joriy oy</span>
+                  <span class="col-2 fs-28 q-pt-lg q-pl-md text-weight-bold" style="color: orange">83%</span>
+                </q-card-section>
+                <q-card-section class="row" style="padding: 0;">
+                  <span class="col-10 fs-18 q-pa-lg">Kelib tushgan murojaatlar soni</span>
+                  <span class="col-2 fs-24 q-pa-lg text-weight-bold">4337</span>
+                </q-card-section>
+                <q-separator color="grey" class="q-ml-lg" inset/>
+                <q-card-section class="row" style="padding: 0;">
+                  <span class="col-10 fs-18 q-pa-lg">Javob berilganlar soni</span>
+                  <span class="col-2 fs-18 q-pa-lg">4023</span>
+                </q-card-section>
+                <q-separator color="grey" class="q-ml-lg" inset/>
+              </q-card>
+            </div>
           </div>
-          <div>
-            <q-card class="medium-card flex">
+          <div class="col-12">
+            <q-card class="q-ma-lg">
               <q-card-section>
                 <span>Oy bo'yicha statistika</span>
                 <span>Fevral 2022</span>
                 <span>
-              <q-icon>
-                <img src="../assets/date_range.svg" alt=""/>
-              </q-icon>
-            </span>
+                  <q-icon>
+                    <img src="../assets/date_range.svg" alt=""/>
+                  </q-icon>
+                </span>
               </q-card-section>
               <q-card-section>
-                <img src="../assets/chart-1.png" alt="">
+                <img class="chart-img" src="../assets/chart-1.png" alt="">
               </q-card-section>
-
             </q-card>
-            <q-card class="medium-card flex">
+            <q-card class="q-ma-lg">
               <q-card-section>
                 <span>Yil bo'yicha statistika</span>
                 <span>2022</span>
@@ -64,14 +67,14 @@
             </span>
               </q-card-section>
               <q-card-section>
-                <img src="../assets/chart-2.png" alt="">
+                <img class="chart-img" src="../assets/chart-2.png" alt="" width="861" height="231">
               </q-card-section>
             </q-card>
           </div>
         </div>
       </div>
-      <div class="col-xl-4 col-md-5">
-        <q-card class="big-card">
+      <div class="col-xl-4 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <q-card class="q-ma-lg">
           <q-card-section>
             <span>Kun kesimida</span>
             <span>Fevral<br>2022</span>
@@ -79,7 +82,7 @@
           <q-separator color="grey" inset/>
           <q-card-section>
             <q-list>
-              <q-scroll-area style="height: 720px">
+              <q-scroll-area style="height: 79vh">
                 <q-item v-for="appeal in appeals" class="flex-column">
                   <q-item-section>
                     <span>{{ appeal.date }}</span>
@@ -264,4 +267,19 @@ export default defineComponent({
   flex-direction: column
   justify-content: space-between
   height: 100%
+.fs-28
+  font-size: 28px
+  line-height: 1.15
+
+.fs-24
+  font-size: 24px
+  line-height: 1.15
+
+.fs-18
+  font-size: 18px
+  line-height: 1.15
+
+@media (min-width: 1024px) and (max-width: 1439px)
+  .chart-img
+    width: 650px
 </style>
