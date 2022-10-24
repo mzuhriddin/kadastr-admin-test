@@ -282,4 +282,7 @@ export default defineComponent({
 @media (min-width: 1024px) and (max-width: 1439px)
   .chart-img
     width: 650px
+
+@media (min-width: 320px) and (max-width: 600px)
+
 </style>

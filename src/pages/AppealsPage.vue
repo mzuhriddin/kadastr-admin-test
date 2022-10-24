@@ -27,7 +27,7 @@
           <span>Javob</span>
           <span>Operator</span>
         </q-item>
-        <q-scroll-area style="height: 750px">
+        <q-scroll-area style="height: 700px">
           <q-item
             v-for="appeal in appeals"
             clickable

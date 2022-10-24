@@ -10,11 +10,11 @@
             size="lg"
             @click="toggleLeftDrawer"
           />
-          <q-toolbar-title class="text-weight-medium" style="font-size: 28px">
+          <q-toolbar-title class="text-weight-medium route-name" style="font-size: 28px">
             {{ $route.name }}
           </q-toolbar-title>
         </div>
-        <div>
+        <div class="row justify-between no-wrap">
           <q-btn flat size="lg">
             <img src="../assets/notifications.svg" alt="">
           </q-btn>
@@ -32,9 +32,8 @@
 
     </q-header>
 
-    <q-drawer show-if-above v-model="leftDrawerOpen" side="left" behavior="desktop" bordered
-              class="bg-primary text-white"
-              :width="394">
+    <q-drawer show-if-above :breakpoint="1024" v-model="leftDrawerOpen" side="left"
+              class="bg-primary text-white drawer" :width="$q.screen.width > 720 ? 394 : 300">
       <img class="logo" src="../assets/logo-big.svg" alt="" width="188" height="94"/>
 
       <q-list>
@@ -111,33 +110,32 @@ export default {
       this.leftDrawerOpen = !this.leftDrawerOpen
     },
 
-  }
+  },
+
 }
+
 </script>
 
-<style lang="scss" scoped>
-.header {
-  height: 86px;
-}
+<style lang="sass" scoped>
+.header
+  height: 86px
 
-.header-right {
-  display: flex;
-  align-items: center;
-}
+.header-right
+  display: flex
+  align-items: center
 
-.logo {
-  margin: 46px 160px 97px 46px;
-}
+.logo
+  margin: 46px 160px 97px 46px
 
-.drawer-content {
-  font-size: 24px;
-  line-height: 28px;
-}
+.drawer-content
+  font-size: 24px
+  line-height: 28px
 
-.drawer-image {
-  margin: 0 0 0 42px;
-  padding-right: 34px;
+.drawer-image
+  margin: 0 0 0 42px
+  padding-right: 34px
 
-}
+@media (max-width: 720px)
+
 
 </style>
